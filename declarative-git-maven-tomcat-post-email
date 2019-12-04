@@ -22,11 +22,11 @@ pipeline{
             steps{
                 sshagent(['tomcat']) {
                     // stop tomcat
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.33.9 /opt/tomcat9/bin/shutdown.sh"
+                   // sh "ssh -o StrictHostKeyChecking=no root@172.31.33.9 /opt/tomcat9/bin/shutdown.sh"
                     // copy war file to remote tomcat
-                    sh "scp target/6pmwebapp.war  ec2-user@172.31.33.9:/opt/tomcat9/webapps/"
+                    sh "scp target/6pmwebapp.war  root@172.31.33.9:/opt/tomcat9/webapps/"
                     // start tomcat
-                    sh "ssh ec2-user@172.31.33.9 /opt/tomcat9/bin/startup.sh"
+                  //  sh "ssh root@172.31.33.9 /opt/tomcat9/bin/startup.sh"
                 } 
             }
         }
